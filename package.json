@@ -8,6 +8,14 @@
     "deploy": "flayyer deploy",
     "format": "xo --fix"
   },
+  "author": {
+    "email": "patricio@flayyer.com",
+    "name": "Patricio Lopez J."
+  },
+  "repository": {
+    "url": "https://github.com/flayyer/flayyer-marketplace-nicetypography.git"
+  },
+  "license": "MIT",
   "dependencies": {
     "@flayyer/flayyer-types": "^1.11.0",
     "@flayyer/proxy": "^0.1.0",
@@ -26,6 +34,7 @@
     "@types/react": "^17.0.4",
     "autoprefixer": "^9",
     "dotenv": "^10.0.0",
+    "endent": "^2.1.0",
     "eslint-config-xo-react": "^0.25.0",
     "eslint-plugin-react": "^7.23.1",
     "eslint-plugin-react-hooks": "^4.2.0",

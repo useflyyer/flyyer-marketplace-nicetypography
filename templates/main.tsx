@@ -107,24 +107,25 @@ export default function MainTemplate(props: TemplateProps<Variables>) {
     }
   );
 
-  const {fontSize: titleFontSize, ref: titleRef} = useFitText(
-    {
-      maxFontSize: 1000 /* 1000% */
-    },
-    [titleLeading, title]
-  );
-  const {fontSize: descriptionFontSize, ref: descriptionRef} = useFitText(
-    {
-      maxFontSize: 1000 /* 1000% */
-    },
-    [longDescription]
-  );
   const fonts = [font, fontSecondary].filter(Boolean)!;
   const googleFont = useGoogleFonts(
     fonts.map((f) => ({
       family: f,
       styles: Array.from(new Set([200, 400, 600, 800, titleWeight!]))
     }))
+  );
+
+  const {fontSize: titleFontSize, ref: titleRef} = useFitText(
+    {
+      maxFontSize: 1000 /* 1000% */
+    },
+    [title, titleLeading, titleWeight, font, googleFont.status]
+  );
+  const {fontSize: descriptionFontSize, ref: descriptionRef} = useFitText(
+    {
+      maxFontSize: 1000 /* 1000% */
+    },
+    [longDescription, fontSecondary, googleFont.status]
   );
 
   return (

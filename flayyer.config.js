@@ -1,7 +1,7 @@
 // Created with create-flayyer-app@1.17.0
 
 const {config} = require('@flayyer/flayyer-types');
-const { default: endent } = require("endent");
+const {default: endent} = require('endent');
 require('dotenv').config();
 
 module.exports = config({
@@ -16,10 +16,10 @@ module.exports = config({
 
     Optionally supports a background image and custom colors.
   `,
-  homepage: "https://flayyer.com",
-  keywords: ["flayyer", "typography", "tailwind", "tailwindcss"],
-  license: "MIT",
+  homepage: 'https://flayyer.com',
+  keywords: ['flayyer', 'typography', 'tailwind', 'tailwindcss'],
+  license: 'MIT',
   private: false, // Make it public at flayyer.com/community
-  repository: "https://github.com/flayyer/flayyer-marketplace-nicetypography",
-  sizes: ["THUMBNAIL" | "BANNER" | "SQUARE" | "STORY" ],
+  repository: 'https://github.com/flayyer/flayyer-marketplace-nicetypography',
+  sizes: ['THUMBNAIL', 'BANNER', 'SQUARE', 'STORY']
 });

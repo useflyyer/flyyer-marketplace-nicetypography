@@ -179,8 +179,8 @@ export default function MainTemplate(props: TemplateProps<Variables>) {
           }}
         >
           <h1
-            className="font-extrabold text-trueGray-900 text-center"
-            style={{color: titleColor}}
+            className="text-trueGray-900 text-center"
+            style={{color: titleColor, fontWeight: titleWeight}}
           >
             {title}
           </h1>

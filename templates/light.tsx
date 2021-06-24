@@ -81,7 +81,7 @@ export default function LightTemplate(props: TemplateProps<Variables>) {
 
   const longDescription = useLongText(description);
 
-  const fonts = [font, fontSecondary].filter<string>(Boolean as any)!;
+  const fonts = [font, fontSecondary].filter<string>(Boolean as any)
   const googleFont = useGoogleFonts(
     fonts.map((f) => ({
       family: f,

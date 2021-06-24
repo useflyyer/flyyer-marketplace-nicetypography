@@ -1,4 +1,5 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
+const colors = require('tailwindcss/colors');
 
 /**
  * See ./styles/tailwind.css for info about measurements in rem units and the default font-size.
@@ -27,6 +28,7 @@ module.exports = {
    */
   darkMode: 'class',
   theme: {
+    colors,
     extend: {
       spacing: {
         /**

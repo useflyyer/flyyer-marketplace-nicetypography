@@ -30,8 +30,9 @@
   "devDependencies": {
     "@flayyer/cli": "^1.17.1",
     "@fullhuman/postcss-purgecss": "^4.0.3",
-    "@tailwindcss/postcss7-compat": "^2.1.2",
+    "@tailwindcss/postcss7-compat": "^2.2.4",
     "@types/react": "^17.0.4",
+    "@types/tailwindcss": "^2.2.0",
     "autoprefixer": "^9",
     "dotenv": "^10.0.0",
     "endent": "^2.1.0",
@@ -41,7 +42,7 @@
     "postcss": "^7",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "typescript": "^4.2.4",
-    "xo": "^0.39.1"
+    "xo": "^0.40.3"
   },
   "xo": {
     "prettier": true,
@@ -53,7 +54,11 @@
       "react/prop-types": "off",
       "react/function-component-definition": "off",
       "@typescript-eslint/no-non-null-assertion": "off",
-      "@typescript-eslint/no-unused-vars": "off"
+      "@typescript-eslint/no-unused-vars": "off",
+      "@typescript-eslint/no-unsafe-assignment": "off",
+      "@typescript-eslint/prefer-nullish-coalescing": "off",
+      "@typescript-eslint/triple-slash-reference": "off",
+      "unicorn/prefer-module": "off"
     }
   }
 }

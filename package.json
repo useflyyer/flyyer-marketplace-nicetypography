@@ -18,10 +18,10 @@
   "license": "MIT",
   "dependencies": {
     "@flayyer/flayyer-types": "^1.11.0",
-    "@flayyer/proxy": "^0.1.0",
+    "@flayyer/proxy": "^1.0.0",
     "@flayyer/use-fit-text": "^2.4.1",
     "@flayyer/use-googlefonts": "^0.3.0",
-    "@flayyer/variables": "^1.5.1",
+    "@flayyer/variables": "^1.6.0",
     "clsx": "^1.1.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

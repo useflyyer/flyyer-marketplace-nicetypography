@@ -1,12 +1,12 @@
-// Created with create-flayyer-app@1.17.0
+// Created with create-flyyer-app@1.17.0
 
-const {config} = require('@flayyer/flayyer-types');
+const {config} = require('@flyyer/types');
 const {default: endent} = require('endent');
 require('dotenv').config();
 
 module.exports = config({
   engine: 'react-typescript',
-  key: process.env.FLAYYER_KEY,
+  key: process.env.FLYYER_KEY,
   deck: 'nice-typography',
 
   // Optionals
@@ -16,10 +16,10 @@ module.exports = config({
 
     Optionally supports a background image and custom colors.
   `,
-  homepage: 'https://flayyer.com',
-  keywords: ['flayyer', 'typography', 'tailwind', 'tailwindcss'],
+  homepage: 'https://flyyer.io',
+  keywords: ['flyyer', 'typography', 'tailwind', 'tailwindcss'],
   license: 'MIT',
-  private: false, // Make it public at flayyer.com/community
-  repository: 'https://github.com/flayyer/flayyer-marketplace-nicetypography',
+  private: false, // Make it public at flyyer.io/community
+  repository: 'https://github.com/useflyyer/flyyer-marketplace-nicetypography',
   sizes: ['THUMBNAIL', 'BANNER', 'SQUARE', 'STORY']
 });

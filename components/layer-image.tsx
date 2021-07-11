@@ -1,5 +1,5 @@
 import React from 'react';
-import {proxy} from '@flayyer/proxy';
+import {proxy} from '@flyyer/proxy';
 import {useSmartcrop} from 'use-smartcrop';
 
 import {ObjectFit} from './fit';

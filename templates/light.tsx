@@ -1,7 +1,7 @@
 import React, {useMemo} from 'react';
-import {Variable as V, Validator, Static} from '@flayyer/variables';
-import {TemplateProps} from '@flayyer/flayyer-types';
-import {useGoogleFonts} from '@flayyer/use-googlefonts';
+import {Variable as V, Validator, Static} from '@flyyer/variables';
+import {TemplateProps} from '@flyyer/types';
+import {useGoogleFonts} from '@flyyer/use-googlefonts';
 import clsx from 'clsx';
 import twColors from 'tailwindcss/colors';
 
@@ -32,7 +32,7 @@ const colors: string[] = [
 ];
 
 /**
- * Export to enable variables UI on Flayyer.com
+ * Export to enable variables UI on Flyyer.io
  */
 export const schema = V.Object({
   title: V.String({default: 'Hello.', examples: ['Hello.']}),
@@ -93,7 +93,7 @@ export default function LightTemplate(props: TemplateProps<Variables>) {
     <Layer
       className={clsx('bg-gray-50', {
         dark: 0,
-        'flayyer-ready': googleFont.status
+        'flyyer-ready': googleFont.status
       })}
     >
       <LayerDescription

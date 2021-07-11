@@ -1,5 +1,5 @@
 import React, {DependencyList} from 'react';
-import {useFitText} from '@flayyer/use-fit-text';
+import {useFitText} from '@flyyer/use-fit-text';
 import clsx from 'clsx';
 import {Layer} from './layers';
 

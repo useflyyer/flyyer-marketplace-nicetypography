@@ -1,6 +1,6 @@
 {
   "name": "@flyyer/nice-typography",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "start": "flyyer start",
@@ -17,8 +17,8 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@flyyer/types": "^2.0.0",
     "@flyyer/proxy": "^2.0.0",
+    "@flyyer/types": "^2.0.0",
     "@flyyer/use-fit-text": "^3.0.0",
     "@flyyer/use-googlefonts": "^0.4.0",
     "@flyyer/variables": "^2.0.0",

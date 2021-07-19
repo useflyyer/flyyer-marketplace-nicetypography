@@ -1,7 +1,7 @@
 import React, {useMemo} from 'react';
 import {Variable as V, Validator, Static} from '@flyyer/variables';
 import {TemplateProps} from '@flyyer/types';
-import {useGoogleFonts} from '@flyyer/use-googlefonts';
+import {GoogleFontsStatus, useGoogleFonts} from '@flyyer/use-googlefonts';
 import clsx from 'clsx';
 import twColors from 'tailwindcss/colors';
 
@@ -20,8 +20,8 @@ const colors: string[] = [
   twColors.cyan[400],
   twColors.green[400],
   twColors.yellow[300],
-  twColors.blue[500],
-]
+  twColors.blue[500]
+];
 
 /**
  * Export to enable variables UI on Flyyer.io
@@ -76,7 +76,7 @@ export default function DarkTemplate(props: TemplateProps<Variables>) {
 
   const longDescription = useLongText(description);
 
-  const fonts = [font, fontSecondary].filter<string>(Boolean as any)
+  const fonts = [font, fontSecondary].filter<string>(Boolean as any);
   const googleFont = useGoogleFonts(
     fonts.map((f) => ({
       family: f,
@@ -88,28 +88,26 @@ export default function DarkTemplate(props: TemplateProps<Variables>) {
     <Layer
       className={clsx('bg-trueGray-900' /* #171717 */, {
         dark: 0,
-        'flyyer-ready': googleFont.status
+        'flyyer-wait': googleFont.status === GoogleFontsStatus.LOADING
       })}
     >
-      <LayerDescription
-        font={fontSecondary}
-        opacity={1}
-        color="#3F3F46"
-        dependencies={[googleFont.status]}
-      >
-        {longDescription}
-      </LayerDescription>
-      <LayerTitle
-        leading={titleLeading}
-        font={font}
-        color={titleColor}
-        weight={titleWeight}
-        strokeWith="2px"
-        strokeColor="#171717"
-        dependencies={[googleFont.status]}
-      >
-        {title}
-      </LayerTitle>
+      {googleFont.status !== GoogleFontsStatus.LOADING && (
+        <LayerDescription font={fontSecondary} opacity={1} color="#3F3F46">
+          {longDescription}
+        </LayerDescription>
+      )}
+      {googleFont.status !== GoogleFontsStatus.LOADING && (
+        <LayerTitle
+          leading={titleLeading}
+          font={font}
+          color={titleColor}
+          weight={titleWeight}
+          strokeWith="2px"
+          strokeColor="#171717"
+        >
+          {title}
+        </LayerTitle>
+      )}
     </Layer>
   );
 }

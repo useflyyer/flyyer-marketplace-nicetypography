@@ -19,13 +19,13 @@
   "dependencies": {
     "@flyyer/proxy": "^2.0.0",
     "@flyyer/types": "^2.0.0",
-    "@flyyer/use-fit-text": "^3.0.0",
+    "@flyyer/use-fit-text": "^3.0.1",
     "@flyyer/use-googlefonts": "^0.4.0",
     "@flyyer/variables": "^2.0.0",
     "clsx": "^1.1.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "use-smartcrop": "^0.3.4"
+    "use-smartcrop": "^1.0.1"
   },
   "devDependencies": {
     "@flyyer/cli": "^2.0.0",
@@ -58,6 +58,8 @@
       "@typescript-eslint/no-unsafe-assignment": "off",
       "@typescript-eslint/prefer-nullish-coalescing": "off",
       "@typescript-eslint/triple-slash-reference": "off",
+      "@typescript-eslint/no-unsafe-argument": "off",
+      "unicorn/no-array-callback-reference": "off",
       "unicorn/prefer-module": "off"
     }
   }

@@ -1,4 +1,4 @@
-import React, {DependencyList} from 'react';
+import React from 'react';
 import {useFitText} from '@flyyer/use-fit-text';
 import clsx from 'clsx';
 import {Layer} from './layers';
@@ -7,22 +7,20 @@ interface LayerDescriptionProps {
   font?: string;
   opacity?: number;
   color?: string;
-  dependencies?: DependencyList;
 }
 export function LayerDescription({
   font,
   color,
   opacity,
   children,
-  dependencies,
   ...props
 }: LayerDescriptionProps & React.ComponentProps<typeof Layer>) {
-  const {fontSize: descriptionFontSize, ref: descriptionRef} = useFitText(
-    {
-      maxFontSize: 1000 /* 1000% */
-    },
-    [children, font, ...(dependencies || [])]
+  const {fontSize, ref, isCalculating} = useFitText(
+    {maxFontSize: 1000 /* 1000% */, resolution: 10},
+    [children, font]
   );
+
+  // Console.log({children, fontSize, font, isCalculating});
 
   return (
     <Layer
@@ -31,9 +29,11 @@ export function LayerDescription({
       {...props}
     >
       <div
-        ref={descriptionRef}
-        className={clsx('w-full h-full', 'flex items-center justify-center')}
-        style={{fontSize: descriptionFontSize}}
+        ref={ref}
+        className={clsx('w-full h-full', 'flex items-center justify-center', {
+          'flyyer-wait': isCalculating
+        })}
+        style={{fontSize}}
       >
         <p
           style={{color, opacity}}

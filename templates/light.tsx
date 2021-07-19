@@ -1,7 +1,7 @@
 import React, {useMemo} from 'react';
 import {Variable as V, Validator, Static} from '@flyyer/variables';
 import {TemplateProps} from '@flyyer/types';
-import {useGoogleFonts} from '@flyyer/use-googlefonts';
+import {GoogleFontsStatus, useGoogleFonts} from '@flyyer/use-googlefonts';
 import clsx from 'clsx';
 import twColors from 'tailwindcss/colors';
 
@@ -81,7 +81,7 @@ export default function LightTemplate(props: TemplateProps<Variables>) {
 
   const longDescription = useLongText(description);
 
-  const fonts = [font, fontSecondary].filter<string>(Boolean as any)
+  const fonts = [font, fontSecondary].filter<string>(Boolean as any);
   const googleFont = useGoogleFonts(
     fonts.map((f) => ({
       family: f,
@@ -93,28 +93,26 @@ export default function LightTemplate(props: TemplateProps<Variables>) {
     <Layer
       className={clsx('bg-gray-50', {
         dark: 0,
-        'flyyer-ready': googleFont.status
+        'flyyer-wait': googleFont.status === GoogleFontsStatus.LOADING
       })}
     >
-      <LayerDescription
-        font={fontSecondary}
-        opacity={1}
-        color="#F3F4F6"
-        dependencies={[googleFont.status]}
-      >
-        {longDescription}
-      </LayerDescription>
-      <LayerTitle
-        leading={titleLeading}
-        font={font}
-        color={titleColor}
-        weight={titleWeight}
-        strokeColor="white"
-        strokeWith="10px"
-        dependencies={[googleFont.status]}
-      >
-        {title}
-      </LayerTitle>
+      {googleFont.status !== GoogleFontsStatus.LOADING && (
+        <LayerDescription font={fontSecondary} opacity={1} color="#F3F4F6">
+          {longDescription}
+        </LayerDescription>
+      )}
+      {googleFont.status !== GoogleFontsStatus.LOADING && (
+        <LayerTitle
+          leading={titleLeading}
+          font={font}
+          color={titleColor}
+          weight={titleWeight}
+          strokeColor="white"
+          strokeWith="10px"
+        >
+          {title}
+        </LayerTitle>
+      )}
     </Layer>
   );
 }

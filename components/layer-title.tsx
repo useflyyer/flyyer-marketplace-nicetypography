@@ -1,4 +1,4 @@
-import React, {DependencyList} from 'react';
+import React from 'react';
 import {useFitText} from '@flyyer/use-fit-text';
 import clsx from 'clsx';
 
@@ -13,7 +13,6 @@ interface LayerTitleProps {
   weight?: number;
   strokeWith?: string;
   strokeColor?: string;
-  dependencies?: DependencyList;
 }
 export function LayerTitle({
   font,
@@ -24,15 +23,14 @@ export function LayerTitle({
   strokeWith,
   strokeColor,
   children,
-  dependencies,
   ...props
 }: LayerTitleProps & React.ComponentProps<typeof Layer>) {
-  const {fontSize: titleFontSize, ref: titleRef} = useFitText(
-    {
-      maxFontSize: 1000 /* 1000% */
-    },
-    [children, leading, weight, font, ...(dependencies || [])]
+  const {fontSize, ref, isCalculating} = useFitText(
+    {maxFontSize: 1000 /* 1000% */, resolution: 10},
+    [children, leading, weight, font]
   );
+
+  // console.log({children, fontSize, font, isCalculating});
 
   return (
     <Layer
@@ -41,10 +39,12 @@ export function LayerTitle({
       {...props}
     >
       <div
-        ref={titleRef}
-        className={clsx('w-full h-full', 'flex items-center justify-center')}
+        ref={ref}
+        className={clsx('w-full h-full', 'flex items-center justify-center', {
+          'flyyer-wait': isCalculating
+        })}
         style={{
-          fontSize: titleFontSize,
+          fontSize,
           lineHeight: leading,
           opacity
         }}
